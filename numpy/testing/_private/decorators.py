@@ -1,4 +1,11 @@
 """
+.. deprecated:: 1.20
+
+*These decorators are deprecated, and are only retained for folks
+using the old nose framework and will be removed as some point, since
+nose doesn't work with recent Python without modification. Most
+distros no longer provide nose, but rather nose2*.
+
 Decorators for labeling and modifying behavior of test objects.
 
 Decorators that merely return a modified version of the original
@@ -13,6 +20,14 @@ function name, setup and teardown functions and so on - see
 ``nose.tools`` for more information.
 
 """
+import warnings
+
+warnings.warn('The module np.testing.dec is deprecated, as numpy '
+              'will be removing support for nose in favor of nose2',
+              category=DeprecationWarning,
+              stacklevel=2)
+
+
 import collections.abc
 
 from .utils import SkipTest, assert_warns, HAS_REFCOUNT
